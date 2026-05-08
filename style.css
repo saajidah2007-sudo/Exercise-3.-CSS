@@ -1,0 +1,324 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body{
+    background: #111;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Loading Animation */
+.loader-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.loader{
+    width: 50px;
+    height: 50px;
+
+    border: 6px solid #444;
+    border-top: 6px solid #4da6ff;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin{
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 50px;
+
+    background: #1b1b1b;
+
+    animation: slideDown 1s ease;
+}
+
+nav h1{
+    color: #4da6ff;
+}
+
+/* Navigation Menu */
+nav ul{
+    display: flex;
+    list-style: none;
+}
+
+nav ul li{
+    margin-left: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+
+    transition: color 0.4s ease;
+}
+
+nav ul li a:hover{
+    color: #4da6ff;
+}
+
+/* Hero Section */
+.hero{
+    height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        -45deg,
+        #111,
+        #1e3c72,
+        #2a5298,
+        #000
+    );
+
+    background-size: 400% 400%;
+
+    animation: gradientBG 10s ease infinite;
+}
+
+.hero h2{
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p{
+    margin-bottom: 20px;
+}
+
+/* CTA Button */
+.cta-btn{
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #4da6ff;
+    color: white;
+
+    cursor: pointer;
+
+    animation: pulse 1.5s infinite;
+
+    transition: transform 0.4s ease;
+}
+
+.cta-btn:hover{
+    transform: scale(1.1);
+
+    animation-play-state: paused;
+}
+
+/* Product Section */
+.products{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+
+    padding: 50px;
+}
+
+/* Cards */
+.card{
+    background: #1e1e1e;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    animation: slideUp 1s forwards;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        opacity 0.4s ease,
+        width 0.4s ease;
+}
+
+/* Animation Delays */
+.card:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(2){
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(3){
+    animation-delay: 0.6s;
+}
+
+.card:nth-child(4){
+    animation-delay: 0.8s;
+}
+
+.card:nth-child(5){
+    animation-delay: 1s;
+}
+
+.card:nth-child(6){
+    animation-delay: 1.2s;
+}
+
+/* Hover Effects */
+.card:hover{
+    transform: scale(1.08);
+
+    background: #4da6ff;
+
+    color: white;
+}
+
+/* Card Images */
+.card img{
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    margin-bottom: 15px;
+
+    transition: transform 0.5s ease;
+}
+
+/* Image Hover Effect */
+.card:hover img{
+    transform: scale(1.05);
+}
+
+/* Buttons */
+.card button{
+    margin-top: 15px;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    background: black;
+
+    color: white;
+
+    cursor: pointer;
+
+    transform: skew(-10deg);
+
+    transition: all 0.4s ease;
+}
+
+.card button:hover{
+    transform: skew(0deg) translateY(-5px);
+
+    background: white;
+
+    color: black;
+}
+
+/* Background Animation */
+@keyframes gradientBG{
+
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp{
+
+    to{
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+/* Navigation Animation */
+@keyframes slideDown{
+
+    from{
+        transform: translateY(-100px);
+    }
+
+    to{
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse{
+
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media(max-width: 768px){
+
+    nav{
+        flex-direction: column;
+    }
+
+    nav ul{
+        margin-top: 10px;
+    }
+
+    .hero h2{
+        font-size: 2rem;
+    }
+
+    .products{
+        padding: 20px;
+    }
+}
